@@ -1,6 +1,6 @@
-import CalculatorForm from "./components/CalculatorForm";
-import CalculatorHeader from "./components/CalculatorHeader";
-import CalculatorTable from "./components/CalculatorTable";
+import CalculatorForm from "./components/CalculatorForm/CalculatorForm";
+import CalculatorHeader from "./components/CalculatorHeader/CalculatorHeader";
+import CalculatorTable from "./components/CalculatorTable/CalculatorTable";
 
 function App() {
   const calculateHandler = (userInput) => {
