@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CalculatorForm = () => {
+const CalculatorForm = ({ onCalculateInvestment }) => {
   const [currentSavings, setCurrentSavings] = useState("");
   const [yearlySavings, setYearlySavings] = useState("");
   const [expectedInterest, setExpectedInterest] = useState("");
@@ -22,13 +22,25 @@ const CalculatorForm = () => {
     setInvestmentDuration(event.target.value);
   };
 
-  const submitHandler = (event) => {
-    event.preventDefault();
-
+  const resetInputsHandler = () => {
     setCurrentSavings("");
     setYearlySavings("");
     setExpectedInterest("");
     setInvestmentDuration("");
+  };
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    const formData = {
+      "current-savings": currentSavings,
+      "yearly-contribution": yearlySavings,
+      "expected-return": expectedInterest,
+      duration: investmentDuration,
+    };
+
+    onCalculateInvestment(formData);
+    resetInputsHandler();
   };
 
   return (
@@ -76,7 +88,7 @@ const CalculatorForm = () => {
         </p>
       </div>
       <p className="actions">
-        <button type="reset" className="buttonAlt">
+        <button type="reset" className="buttonAlt" onClick={resetInputsHandler}>
           Reset
         </button>
         <button type="submit" className="button">

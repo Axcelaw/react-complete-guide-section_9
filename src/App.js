@@ -4,9 +4,6 @@ import CalculatorTable from "./components/CalculatorTable";
 
 function App() {
   const calculateHandler = (userInput) => {
-    // Should be triggered when form is submitted
-    // You might not directly want to bind it to the submit event on the form though...
-
     const yearlyData = []; // per-year results
 
     let currentSavings = +userInput["current-savings"]; // feel free to change the shape of this input object!
@@ -34,7 +31,7 @@ function App() {
     <div>
       <CalculatorHeader />
 
-      <CalculatorForm />
+      <CalculatorForm onCalculateInvestment={calculateHandler} />
 
       {/* Todo: Show below table conditionally (only once result data is available) */}
       {/* Show fallback text if no data is available */}
