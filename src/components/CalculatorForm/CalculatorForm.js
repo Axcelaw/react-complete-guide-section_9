@@ -16,9 +16,7 @@ const CalculatorForm = ({ onCalculateInvestment }) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-
     onCalculateInvestment(userInput);
-    resetInputsHandler();
   };
 
   const inputChangeHandler = (input, value) => {
